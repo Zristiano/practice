@@ -31,6 +31,12 @@ public class RegexTest {
         Utils.println("matches -> " + m.matches());
     }
 
+    public void match(String content, String regex){
+        Pattern p = Pattern.compile(regex);
+        Matcher matcher = p.matcher(content);
+        Utils.println("matches -> "+ matcher.matches());
+    }
+
     /**
      * 《Java疯狂讲义》第7章习题3
      *

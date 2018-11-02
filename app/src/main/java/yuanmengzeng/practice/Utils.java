@@ -1,6 +1,8 @@
 package yuanmengzeng.practice;
 
+import java.util.Collection;
 import java.util.MissingFormatArgumentException;
+import java.util.Random;
 
 public class Utils {
     /**
@@ -53,7 +55,15 @@ public class Utils {
 
     }
 
-    public static void printArrayInt(int[] array) {
+    public static <E>  void print(Collection<E> c) {
+        println("{ ");
+        for (E e:c){
+            println(e.toString()+",");
+        }
+        println("}");
+    }
+
+    public static <T> void printArrayInt(T[] array) {
         System.out.print("{ ");
         if (array.length > 0) {
             for (int i = 0; i < array.length; i++) {
@@ -65,5 +75,68 @@ public class Utils {
             }
         }
         System.out.print("}");
+    }
+
+    public static  void printArrayInt(int[] array) {
+        System.out.print("{ ");
+        if (array.length > 0) {
+            for (int i = 0; i < array.length; i++) {
+                if (i == array.length - 1) {
+                    System.out.print(array[i] + " ");
+                    continue;
+                }
+                System.out.print(array[i] + ", ");
+            }
+        }
+        System.out.print("}");
+    }
+
+    public static  void printArrayChar(char[] array) {
+        System.out.print("{ ");
+        if (array.length > 0) {
+            for (int i = 0; i < array.length; i++) {
+                if (i == array.length - 1) {
+                    System.out.print(array[i] + " ");
+                    continue;
+                }
+                System.out.print(array[i] + ", ");
+            }
+        }
+        System.out.print("}");
+    }
+
+    /**
+     * quick sort
+     * @param array the array to be sorted
+     * @param start the start index of the sub array to be sorted (inclusively)
+     * @param end the end index of the sub array to be sorted (exclusively)
+     */
+    public static void quickSort(int[] array, int start, int end){
+        if (start+1>=end || start<0 || end>array.length){
+            return ;
+        }
+        int i = start-1; // move start to the left side of the sub array
+        int j = end-1; // move the end to the index of the last element in the sub array
+        int pivotIdx = start+ (int)Math.floor(Math.random()*(end-start));
+        int pivot = array[pivotIdx];
+        array[pivotIdx] = array[j];
+        array[j] = pivot;
+        while (i<j){
+            while (array[++i]<pivot) ;
+            while (array[--j]>pivot && i<j);
+            if (i<j){
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        array[end-1] = array[i];
+        array[i] = pivot;
+        for (int k=start; k<end; k++){
+            System.out.print(array[k]+" ");
+        }
+        System.out.println("");
+        quickSort(array,start,i);
+        quickSort(array,i+1,end);
     }
 }

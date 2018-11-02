@@ -13,10 +13,20 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
-        Main main = new Main();
-//        main.extractAnnotation();
-        AnnotationTest antTest = new AnnotationTest();
-        antTest.showDialog();
+
+        ListQuestion lQ = new ListQuestion();
+        Integer[] print = {1,5,3,2,4,6,1,5,4,6};
+        // 1 2 3 4 5
+        //     3 4 5
+        //   2 3
+        //   2 3 4
+        //       4 5 6
+        // 1 2 3 4 5 6
+        // 1 2 3 4 5
+        //       4 5
+        //       4 5 6
+        int visitedMost = lQ.getVisited(7, Arrays.asList(print));
+        Utils.println(visitedMost+"");
     }
 
     private void objectTest() {
@@ -32,6 +42,7 @@ public class Main {
         Utils.println("child.a=" + child.a);
         Utils.println("(TestFather)Child.a=" + ((TestFather) child).a);
         child.print(10);
+
 //        ((TestFather)child).print(10);
     }
 
@@ -95,6 +106,7 @@ public class Main {
         }
     }
 
+
     @SuppressWarnings("unchecked")
     private <T> void parameterizedTest(T params) {
         List<String> list = new ArrayList();
@@ -115,6 +127,8 @@ public class Main {
         Object[] objs = strings;
         objs[0] = 3;
         Utils.println("objs[0] is " + objs[0]);
+        ArrayList<String> s = new ArrayList<>();
+        s.clear();
     }
 
     private void extractAnnotation() {
@@ -135,4 +149,70 @@ public class Main {
         }
     }
 
+    private void reverseKGroup(){
+        ListQuestion lQ = new ListQuestion();
+        ListQuestion.ListNode list = lQ.productList(1);
+//        ListQuestion.ListNode listNode = lQ.reverseSingleList(list,2);
+        ListQuestion.ListNode listNode = lQ.reverseKGroup(list,4);
+        System.out.print(listNode.val);
+        listNode = listNode.next;
+        while(listNode!=null){
+            System.out.print("->"+listNode.val);
+            listNode = listNode.next;
+        }
+    }
+
+    private void intuitOA(){
+        StringQuestion sQ = new StringQuestion();
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("[staging_server:base_server]");
+//        arrayList.add("ram = 8G");
+//        arrayList.add("envname = Staging");
+        arrayList.add("[dev_server:staging_server]");
+        arrayList.add("envname = Dev");
+        arrayList.add("[test_server:dev_server]");
+        arrayList.add("disk = 4G");
+        arrayList.add("[base_server]");
+        arrayList.add("ram = 16G");
+        arrayList.add("disk = 15G");
+        arrayList.add("[qa_server:base_server]");
+        arrayList.add("ram = 4G");
+        // [staging_server:base_server]
+        //ram = 8G
+        //envname = Staging
+        //
+        //[dev_server:staging_server]
+        //envname = Dev
+        //
+        //[test_server:dev_server]
+        //disk = 4G
+        //
+        //[base_server]
+        //ram = 16G
+        //disk = 15G
+        //
+        //[qa_server:base_server]
+        //ram = 4G
+        sQ.parseConfiguration(arrayList);
+    }
+
+
+    private void solveSudoku(){
+        ArrayQuestion aQ = new ArrayQuestion();
+        char[][] board = {
+                {'5','3','.','.','7','.','.','.','.'},
+                {'6','.','.','1','9','5','.','.','.'},
+                {'.','9','8','.','.','.','.','6','.'},
+                {'8','.','.','.','6','.','.','.','3'},
+                {'4','.','.','8','.','3','.','.','1'},
+                {'7','.','.','.','2','.','.','.','6'},
+                {'.','6','.','.','.','.','2','8','.'},
+                {'.','.','.','4','1','9','.','.','5'},
+                {'.','.','.','.','8','.','.','7','9'}};
+        aQ.solveSudoku(board);
+        for (int i=0; i<9; i++){
+            Utils.printArrayChar(board[i]);
+            Utils.println("");
+        }
+    }
 }

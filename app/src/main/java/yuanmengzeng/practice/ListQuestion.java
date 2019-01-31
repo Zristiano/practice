@@ -370,11 +370,6 @@ public class ListQuestion {
                 }
             }
         }
-
-
-
-
-
         LinkedList<Point> visits = new LinkedList<>();
         ListIterator<Point> it = visits.listIterator();
         for (int i=0; i<sprint.length-1; i++){
@@ -418,4 +413,154 @@ public class ListQuestion {
 
         return idx;
     }
+
+
+    // <id, shares, price, timestamp>
+    public static List<Integer> getUnallottedUsers(List<List<Integer>> bids, int totalShares) {
+        final int id =0, sh=1, pr=2, ti =3;
+        PriorityQueue<List<Integer>> queue = new PriorityQueue<>(new Comparator<List<Integer>>() {
+            @Override
+            public int compare(List<Integer> o1, List<Integer> o2) {
+                if (o1.get(pr).intValue()!=(o2.get(pr)).intValue()){
+                    return o2.get(pr)-o1.get(pr);
+                }
+                return o1.get(ti)-o2.get(ti);
+            }
+        });
+        queue.addAll(bids);
+        List<List<Integer>> group = new ArrayList<>();
+        int sharesNeedNum = 0;
+        TreeSet<Integer> unReceivedUser = new TreeSet<>();
+        while (queue.size()>0 && totalShares>0){
+            if (group.size()==0){
+                List<Integer> item = queue.poll();
+                sharesNeedNum += item.get(sh);
+                group.add(item);
+                continue;
+            }
+            if (queue.peek().get(pr).intValue() == group.get(0).get(pr)){
+                List<Integer> item = queue.poll();
+                sharesNeedNum +=item.get(sh);
+                group.add(item);
+                continue;
+            }
+            if (totalShares<group.size()){
+                for (int i= totalShares; i<group.size(); i++){
+                    unReceivedUser.add(group.get(i).get(id));
+                }
+                break;
+            }
+            totalShares-=sharesNeedNum;
+            sharesNeedNum = 0;
+            if (totalShares>0){
+                group.clear();
+            }
+        }
+        while (queue.size()>0){
+            unReceivedUser.add(queue.poll().get(id));
+        }
+        Integer[] midware = new Integer[unReceivedUser.size()];
+        return Arrays.asList(unReceivedUser.toArray(midware));
+    }
+
+    /**
+     * scalyr oa 2
+     * @param bids  bids
+     * @param totalShares totalShares
+     * @return id of users who don't receive any shares
+     */
+    public static List<Integer> getUnallottedUsers_Shunda(List<List<Integer>> bids, int totalShares) {
+        List<Integer> ans=new ArrayList();
+        if(bids.size()==0)
+            return ans;
+        int count=0;
+        Queue<List<Integer>> pq = new PriorityQueue<List<Integer>>(new Comparator<List<Integer>>() {
+            public int compare(List<Integer> a, List<Integer> b) {
+                if(a.get(2)==b.get(2)){
+                    return a.get(3)-b.get(3);
+                }
+                else{
+                    return b.get(2)-a.get(2);
+                }
+            }});
+        for(int i=0;i<bids.size();i++){
+            pq.add(bids.get(i));
+        }
+        while(totalShares>0&&pq.size()>0){
+            count=0;
+            int max=pq.peek().get(2);
+            int sum=0;
+            for(List<Integer> k:pq){
+                if(k.get(2)==max){
+                    count++;
+                    sum+=k.get(1);
+                }
+                else
+                    break;
+            }
+            if(count>totalShares){
+                while(totalShares>0){
+                    pq.poll();
+                    count--;
+                    totalShares--;
+                }
+            }
+            else if(sum>totalShares){
+                while(count>0){
+                    pq.poll();
+                    count--;
+                }
+                totalShares=0;
+            }
+            else if(sum<=totalShares){
+                while(count>0){
+                    pq.poll();
+                    count--;
+                }
+                totalShares-=sum;
+            }
+        }
+        while(pq.size()>0){
+            ans.add(pq.poll().get(0));
+        }
+        Collections.sort(ans, new Comparator<Integer>(){
+            public int compare(Integer a,Integer b) {
+                return a-b;
+            }
+        });
+        return ans;
+    }
+    // 2 2 5  4 14
+
+    /**
+     * 5
+     * 2
+     * 8
+     * 4
+     * 10
+     * 6
+     * 20
+     */
+    public long maximumAmount(List<Integer> a, long k){
+        Collections.sort(a);
+        long res = 0;
+        int point = a.size()-1;
+        long currentPrice = a.get(point);
+        long sameCount = 1;
+        while(k>0){
+            while (point>0 && a.get(point-1)==currentPrice) {
+                sameCount ++;
+                point--;
+            }
+            k = k-sameCount;
+            if (k>=0){
+                res+= sameCount*currentPrice;
+            }else {
+                res+= (k+sameCount)*currentPrice;
+            }
+            currentPrice--;
+        }
+        return res;
+    }
+
 }

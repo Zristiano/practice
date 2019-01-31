@@ -603,5 +603,79 @@ public class ArrayQuestion {
      *                 {'.','.','.','4','1','9','.','.','5'},
      *                 {'.','.','.','.','8','.','.','7','9'}};
      */
+
+    /**
+     * 3 sum 变种， 问数组里可以最多组成多少个tuple，数组里的每个元素只能用一遍
+     *  example:
+     *  -8   3  5   2  6  -5  -1 7
+     *  第一种分法： [-8 2 6]   {-5,-1,3,5,7}  1种
+     *  第二种分法： [-8 3 5]  [-1 -5 6]   {2,7}  2种
+     *  所以return 2
+     */
+    public int threeSumCount(int[] array){
+        boolean visited[] = new boolean[array.length];
+        int max = 0;
+        Arrays.sort(array);
+        for (int i =0; i<array.length; i++){
+            int count = DFSFind(array,i,visited);
+            max = Math.max(max,count);
+        }
+        return max;
+    }
+
+    private int DFSFind(int[] array, int idx, boolean[] visited){
+        // base case
+        if (idx>=array.length-2) return 0;
+        int max = 0;
+        int target = -array[idx];
+        int l = idx+1;
+        int r = array.length-1;
+        while (l<r){
+            if (visited[l]){
+                l++;
+            }else if (visited[r]){
+                r--;
+            }else if (array[l]+array[r]<target){
+                l++;
+            }else if (array[l]+array[r]>target){
+                r--;
+            }else {
+                Utils.println(""+array[idx]+"  "+array[l]+"  "+array[r]);
+                visited[l] = true;
+                visited[r] = true;
+                int count = DFSFind(array,idx+1,visited);
+                max = Math.max(count+1,max);
+                visited[l] = false;
+                visited[r] = false;
+                l++;
+                r--;
+            }
+        }
+        int count = DFSFind(array,idx+1,visited);
+        max = Math.max(count,max);
+        return max;
+    }
+
+
+    /**
+     * there is a 2-dimensional array where there is some bikes and people, how do you assign the bike to each people making
+     * the sum distance least.
+     *
+     * for example:  0-space  1-bike  2-people
+     *   0  0  0  0  0  0  0
+     *   0  1  0  0  0  0  0
+     *   0  0  0  0  0  0  0
+     *   0  0  2  1  0  0  0
+     *   0  0  0  0  0  0  2
+     *   bike[1,1]  -  people[3,2]  dis:3
+     *   bike[3,3]  -  people[4,6]  dis:4
+     *   sum distance : 7
+     *
+     * @param bikes  the location of bikes
+     * @param people the location of people
+     */
+    public void assignBikes(int[][] bikes, int[][] people){
+
+    }
 }
 

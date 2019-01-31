@@ -1,5 +1,8 @@
 package yuanmengzeng.practice;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class HeapQuestion {
 
     public int sortFruits(int[] fruits){
@@ -75,5 +78,60 @@ public class HeapQuestion {
                 break;
             }
         }
+    }
+
+
+    public double mincostToHireWorkers(int[] quality, int[] wage, int K) {
+
+
+
+
+        PriorityQueue<double[]> valueHeap = new PriorityQueue(new Comparator<double[]>(){
+            public int compare(double[] d1, double[] d2){
+                if( d1[0]==d2[0]) return 0;
+                if(d1[0]>d2[0])  return 1;
+                return -1;
+            }
+        });
+
+        for(int i=0; i<quality.length; i++){
+            double value = (double)wage[i]/quality[i];
+            double[] valueMap = {value,(double)i};
+            valueHeap.add(valueMap);
+        }
+
+        double ratioValue = 0.0;
+        PriorityQueue<Double> qualityHeap = new PriorityQueue<Double>(new Comparator<Double>(){
+            public int compare(Double d1, Double d2){
+                if( d1==d2) return 0;
+                if(d1<d2)  return 1;
+                return -1;
+            }
+        });
+        double sumQuality = 0;
+        while(!valueHeap.isEmpty()){
+            double[] item = valueHeap.poll();
+            if(qualityHeap.size()!=K){
+                ratioValue = item[0];
+                qualityHeap.offer((double)quality[(int)item[1]]);
+                sumQuality += quality[(int)item[1]];
+            }else{
+                double sumWage1 = sumQuality*ratioValue;
+                double maybeSumQuality = sumQuality-qualityHeap.peek()+quality[(int)item[1]];
+                double sumWage2 = maybeSumQuality * item[0];
+                if(sumWage2<sumWage1){
+                    qualityHeap.poll();
+                    qualityHeap.offer((double)quality[(int)item[1]]);
+                    ratioValue = item[0];
+                    sumQuality = maybeSumQuality;
+                }else if(sumWage2 == sumWage1 && maybeSumQuality< sumQuality){
+                    qualityHeap.poll();
+                    qualityHeap.offer((double)quality[(int)item[1]]);
+                    ratioValue = item[0];
+                    sumQuality = maybeSumQuality;
+                }
+            }
+        }
+        return ratioValue*sumQuality;
     }
 }

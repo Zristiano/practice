@@ -16,6 +16,11 @@ public class RegexTest {
         Utils.println("group -> " + matcher.group());
     }
 
+    public void leaveNumber(){
+        String s = "323dsds232dsds";
+        Utils.println(s.replaceAll("[^\\d+]",""));
+    }
+
     // yuanmengzeng@pptv.com
     public void matchPPTVEmail() {
         Pattern pattern = Pattern.compile("[\\w\\.]+@pptv.com");

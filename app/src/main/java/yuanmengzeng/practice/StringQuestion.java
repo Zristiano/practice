@@ -416,6 +416,42 @@ public class StringQuestion {
         return maxLen;
     }
 
+    /**
+     * find subString in length num with only 1 repeated character
+     * @param inputString s
+     * @param num length
+     * @return list
+     * example： "1231245124"   num=5
+     * return: [23124, 12451, 24512, 45124]
+     */
+    public  List<String> findK(String inputString, int num){
+        List<String> ans = new ArrayList<>();
+        if (num>inputString.length()){
+            return ans;
+        }
+        char[] chars = new char[256];
+        int countDup = 0;
+        for (int i=0;i<num; i++){
+            char c = inputString.charAt(i);
+            chars[c]++;
+            if (chars[c]>=2) countDup ++;
+        }
+        if (countDup==1) ans.add(inputString.substring(0,num));
+        int l = 0;
+        while(l<inputString.length()-num){
+            char prev = inputString.charAt(l);
+            char next = inputString.charAt(l+num);
+            chars[prev]--;
+            if (chars[prev]>=1) countDup --;
+            chars[next]++;
+            if (chars[next]>=2) countDup ++;
+            l++;
+            if (countDup==1) ans.add(inputString.substring(l,l+num));
+        }
+        return ans;
+    }
+    //23280674775041
+
     public static void parseConfiguration(List<String> configurationLines) {
         // Your code here. Writes to standard output.
         TreeMap<String,TreeMap<String,String>> configMap = new TreeMap<>();
@@ -486,5 +522,48 @@ public class StringQuestion {
         }
 //        System.out.println(""+ extendMap);
 //        System.out.println(""+ configMap);
+    }
+
+    public int minDeletionSize(String[] A) {
+        List<List<String>> list = new ArrayList<>();
+        List<String> subL = new ArrayList<>(Arrays.asList(A));
+        list.add(subL);
+        int count = 0;
+        List<List<String>> newList = new ArrayList<>(list);
+        search :for(int n = 0; n<A[0].length(); n++){
+            List<List<String>> temp = newList;
+            newList = list;
+            list = temp;
+            newList.clear();
+            for(int i=0; i<list.size(); i++){
+                List<String> curl = list.get(i);
+                int curIdx = -1;
+                List<String> toBeCheckList = new ArrayList<>();
+                for(int j=0; j<curl.size(); j++){
+                    int cIdx = curl.get(j).charAt(n)-'a';
+                    if(cIdx>curIdx){
+                        if(toBeCheckList.size()>0){
+                            newList.add(toBeCheckList);
+                            toBeCheckList = new ArrayList<>();
+                        }
+                        curIdx = cIdx;
+                    }else if(cIdx==curIdx){
+                        if(toBeCheckList.size()==0){
+                            toBeCheckList.add(curl.get(j-1));
+                        }
+                        toBeCheckList.add(curl.get(j));
+                    }else{
+                        count++;
+                        newList.clear();
+                        newList.addAll(list);
+                        continue search;
+                    }
+                }
+                if(toBeCheckList.size()>0){
+                    newList.add(toBeCheckList);
+                }
+            }
+        }
+        return count;
     }
 }

@@ -1,32 +1,373 @@
 package yuanmengzeng.practice;
 
 
+import javafx.util.Pair;
+import yuanmengzeng.practice.lucid.Game2048;
 import yuanmengzeng.study.*;
 
+import java.awt.*;
 import java.lang.annotation.Annotation;
 import java.math.BigDecimal;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.time.Duration;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
-    public static void main(String[] args) {
 
-        ListQuestion lQ = new ListQuestion();
-        Integer[] print = {1,5,3,2,4,6,1,5,4,6};
-        // 1 2 3 4 5
-        //     3 4 5
-        //   2 3
-        //   2 3 4
-        //       4 5 6
-        // 1 2 3 4 5 6
-        // 1 2 3 4 5
-        //       4 5
-        //       4 5 6
-        int visitedMost = lQ.getVisited(7, Arrays.asList(print));
-        Utils.println(visitedMost+"");
+    class  Edge{
+        Character v;
+        Character u;
+        int weight;
+        Edge(Character V, Character U, int Weight){
+            v = V;
+            u = U;
+            weight = Weight;
+        }
+    }
+
+
+    public static List<Edge> mstGen(List<Edge> graph){
+        List<Edge> ans = new ArrayList<>();
+        HashSet<Character> vertice = new HashSet<>();
+        for(Edge e : graph){
+            vertice.add(e.u);
+            vertice.add(e.v);
+        }
+        HashSet<Character> countV = new HashSet<>();
+        TreeSet<Edge> set = new TreeSet<>(new Comparator<Edge>() {
+            @Override
+            public int compare(Edge o1, Edge o2) {
+                return o1.weight - o2.weight;
+            }
+        });
+        for(Edge e: graph){
+            set.add(e);
+        }
+        for(Edge e : set){
+            if(countV.size()==vertice.size()){
+                return ans;
+            }
+            if(countV.contains(e.u)&& countV.contains(e.v)){
+                continue;
+            }else{
+                ans.add(e);
+                countV.add(e.u);
+                countV.add(e.v);
+            }
+        }
+        return ans;
+    }
+
+
+
+
+
+
+
+    class TreeNode{
+        TreeNode[] children;
+        int val;
+        TreeNode(int x){
+            val = x;
+        }
+    }
+
+    public static  List<List<Character>> getlist(List<Character> list, int k){
+        List<List<Character>> ans = new ArrayList<>();
+        if(list.size()<k){
+            return ans;
+        }
+//        HashSet<Character> set = new HashSet<>();
+
+        int[] count = new int[26];
+
+        return ans;
+    }
+
+
+
+    public static int bigavg(TreeNode root){
+        int[] max = new int[1];
+        posto(root,max);
+        return max[0];
+    }
+
+    public static int posto(TreeNode root,int[] max){
+        if(root==null){return 0;}
+        int count = 0;
+        for(TreeNode child : root.children){
+            count+=posto(root,max);
+        }
+        for(TreeNode child :root.children){
+            root.val+=child.val;
+        }
+        max[0] = Math.max(max[0],root.val/(++count));
+        return count;
+    }
+
+
+
+    public static void main(String[] args) {
+        Main main = new Main();
+        Game2048 game = new Game2048();
+        game.play();
+    }
+
+    public int fibonacciLoop(int n1, int n2, int n3, int len){
+        if(len==1) return n1;
+        if(len==2) return n2;
+        if(len==3) return n3;
+        for(int i=4;i<=len;i++){
+            int temp = n2;
+            n2 = n3;
+            n3 = n3+n1;
+            n1 = temp;
+            System.out.print(n3+",");
+        }
+        return n3;
+    }
+
+    public int fibonacciRecursive(int n1, int n2, int n3, int len){
+        Map<Integer, Integer> cache = new HashMap<>();
+        cache.put(1,n1);
+        cache.put(2,n2);
+        cache.put(3,n3);
+        return fibonacciHelper(len,cache);
+    }
+    /**  8     7      6
+     *   7    6,4    5,3
+     *   6   5,3
+     *   5  4,2   2
+     *   4 3,1
+     *   3
+     *   2
+     *   1
+     */
+
+    private int fibonacciHelper( int idx, Map<Integer,Integer> cache){
+        Integer n1 = cache.get(idx-1);
+        if (n1==null) n1 = fibonacciHelper(idx-1,cache);
+        Integer n2 = cache.get(idx-3);
+        if (n2==null) n2 = fibonacciHelper(idx-3,cache);
+        int n3 = n1+n2;
+        cache.put(idx,n3);
+        return n3;
+    }
+
+
+
+    private static void differ(String[] ss){
+        for(String s: ss){
+            s=s.trim();
+            System.out.print(s.charAt(0));
+            for (int i=1; i<s.length(); i++){
+                System.out.print(" ");
+                System.out.print(s.charAt(i)-s.charAt(i-1));
+                System.out.print(" ");
+                System.out.print(s.charAt(i));
+            }
+            System.out.println(" ");
+        }
+    }
+
+    private static void cumulate(String[] ss){
+        for(String s: ss){
+            s=s.trim();
+            int sum = 0;
+            for (char c : s.toCharArray()){
+                sum += c-'A';
+            }
+            Utils.println(s+"   "+sum);
+        }
+    }
+
+    private static void infer(String s1, String s2, String s3){
+        s1 = s1.trim();
+        s2 = s2.trim();
+        s3 = s3.trim();
+        StringBuilder sb4= new StringBuilder();
+        int[] D = new int[s1.length()];
+        for (int i=0; i<s1.length(); i++){
+            D[i] = (s2.charAt(i)-s1.charAt(i));
+            if (D[i]<0) D[i]+=26;
+            char c = (char)(((s3.charAt(i)-'A')+D[i])%26+'A');
+            sb4.append(c);
+        }
+
+        String space = "   ";
+        for (int i=0; i<s1.length(); i++){
+            System.out.print(s1.charAt(i)+space);
+        }
+        System.out.println("     "+s3);
+
+        for (int i=0; i<s2.length(); i++){
+            System.out.print(s2.charAt(i)+space);
+        }
+        System.out.println("     "+sb4);
+
+        for (int i=0; i<D.length; i++){
+            System.out.print(D[i]);
+            if (D[i]<=-10){
+                System.out.print(" ");
+            }else if (D[i]<0){
+                System.out.print("  ");
+            }else if (D[i]<10){
+                System.out.print("   ");
+            }else {
+                System.out.print("  ");
+            }
+        }
+    }
+
+    private class User{
+        private String name;
+        private int count;
+        User(String name, int count){
+            this.name = name;
+            this.count = count;
+        }
+    }
+
+    private String toBin(int k){
+//        return Integer.toBinaryString(k);
+        StringBuilder sb = new StringBuilder();
+        while (k!=0){
+            sb.append(k&1);
+            k=k>>1;
+        }
+        return sb.reverse().toString();
+    }
+
+    /**
+     *  * 5分钟之内某个用户请求数超过所有请求数的50%（请求数大于等于10），将该用户加入黑名单，2分钟之后解除
+     *  * 1分钟之内所有的请求数不能超过Y,如果超过Y，这一分钟后面的请求全部丢弃
+     */
+    private String[] solution(String[] A, int Y){
+        Arrays.sort(A,(o1,o2)->{
+            String[] o1s = o1.split(" ");
+            String[] o2s = o2.split(" ");
+            return Integer.parseInt(o1s[1])- Integer.parseInt(o2s[1]);
+        });
+        Point window5 = new Point(0,60*5-1);
+        Point window1 = new Point(0,59);
+        // 5分钟之内的全部请求
+        LinkedList<Pair<String,Integer>> request5 = new LinkedList<>();
+        // 黑名单
+        LinkedHashMap<String,Integer> blackList = new LinkedHashMap<>();
+        // 5分钟之内每个用户的请求数
+        HashMap<String,User> requestMap5 = new HashMap<>();
+
+        HashMap<String,Integer> requestMap1 = new HashMap<>();
+
+        TreeSet<User> userReqSet = new TreeSet<>((o1, o2) -> {
+            if (o1.count==o2.count){
+                return 1;
+            }
+            return o1.count-o2.count;
+        });
+        for(String s: A ){
+            String[] ss = s.split(" ");
+            Pair<String,Integer> newReq = new Pair<>(ss[0],Integer.parseInt(ss[1]));
+            if (newReq.getValue()>=window1.x && newReq.getValue()<=window1.y){
+                // 在黑名单中 or 1分钟内的请求数超过上限
+                if (request5.peek()!=null && newReq.getValue() > request5.peek().getValue() && request5.size()>=10 && blackList.containsKey(newReq.getKey())){
+                    continue;
+                }
+                if (requestMap1.containsKey(newReq.getKey()) && requestMap1.get(newReq.getKey())>=Y){
+                    continue;
+                }
+                System.out.println("req:"+newReq);
+                request5.add(newReq);
+                User user = requestMap5.get(newReq.getKey());
+                if (user==null){
+                    user = new User(newReq.getKey(),0);
+                }
+                userReqSet.remove(user);
+                ++user.count;
+                requestMap1.put(newReq.getKey(),requestMap1.getOrDefault(newReq.getKey(),0)+1);
+                requestMap5.put(newReq.getKey(),user);
+                userReqSet.add(user);
+            }else {
+                // 更新时间窗口
+                int interval = (newReq.getValue()-window1.x)/60 * 60;
+                window1.x+=interval;
+                window1.y+=interval;
+                if (window5.x+60*5<=newReq.getValue()){
+                    window5.x = window1.x-60*4;
+                    window5.y = window1.y;
+                }
+                requestMap1.clear();
+
+                // 黑名单里移除过期用户
+                Iterator<Map.Entry<String,Integer>> it = blackList.entrySet().iterator();
+                while (it.hasNext() && it.next().getValue()<window1.x) it.remove();
+                // 黑名单里加上过去5分钟需要被block的用户
+                if (request5.size()>=10 && userReqSet.first().count*2>request5.size()){
+                    blackList.put(userReqSet.first().name,window1.y+60);
+                }
+
+                // 移除五分钟窗口内的过期请求
+                HashSet<User> changedUser = new HashSet<>();
+                while (request5.size()!=0){
+                    Pair<String,Integer> req = request5.peek();
+                    // 请求时间距现在超过5分钟，移除
+                    if (req.getValue()+60*4<window1.x){
+                        request5.poll();
+                        User user = requestMap5.get(req.getKey());
+                        user.count--;
+                        changedUser.add(user);
+                    }else {
+                        break;
+                    }
+                }
+                for (User user: changedUser) {
+                    userReqSet.remove(user);
+                    userReqSet.add(user);
+                }
+
+
+
+                if (blackList.containsKey(newReq.getKey())){
+                    continue;
+                }
+
+                request5.add(newReq);
+                User user = requestMap5.get(newReq.getKey());
+                if (user==null){
+                    user = new User(newReq.getKey(),0);
+                }
+                user.count++;
+                requestMap1.put(user.name,1);
+//                requestMap5.put(user.name,1);
+                userReqSet.remove(user);
+                userReqSet.add(user);
+                // 更新滑动窗口
+
+            }
+        }
+        return null;
+    }
+
+    private void stringTest(){
+        String s2 = new String("you");
+        s2 = s2.intern();
+        String s1 = "you";
+        String s3 = new String("you");
+        String s4 = "you";
+        HashSet<String> set = new HashSet<>();
+        Utils.println("hashcode s1->"+s1.hashCode());
+        Utils.println("hashcode s2->"+s2.hashCode());
+        Utils.println("hashcode s3->"+s3.hashCode());
+        Utils.println("hashcode s4->"+s4.hashCode());
+        set.add(s1);
+        set.add(s2);
+        set.add(s3);
+        set.add(s4);
+        Utils.println(""+set.size());
+        Utils.println("s1==s2:"+(s1==s2));
+        Utils.println("s1==s3:"+(s1==s3));
+        Utils.println("s2==s3:"+(s2==s3));
+        Utils.println("s1==s4:"+(s1==s4));
     }
 
     private void objectTest() {
@@ -42,7 +383,6 @@ public class Main {
         Utils.println("child.a=" + child.a);
         Utils.println("(TestFather)Child.a=" + ((TestFather) child).a);
         child.print(10);
-
 //        ((TestFather)child).print(10);
     }
 
@@ -215,4 +555,23 @@ public class Main {
             Utils.println("");
         }
     }
+
+    private void kalyr3(){
+        ListQuestion lQ = new ListQuestion();
+        Integer[] print = {1,5,3,2,4,6,1,5,4,6};
+        // 1 2 3 4 5
+        //     3 4 5
+        //   2 3
+        //   2 3 4
+        //       4 5 6
+        // 1 2 3 4 5 6
+        // 1 2 3 4 5
+        //       4 5
+        //       4 5 6
+        int visitedMost = lQ.getVisited(7, Arrays.asList(print));
+        Utils.println(visitedMost+"");
+    }
+    HashMap<String,String> map = new HashMap<String,String>(){
+
+    };
 }

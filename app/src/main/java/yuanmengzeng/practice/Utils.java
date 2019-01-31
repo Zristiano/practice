@@ -1,6 +1,7 @@
 package yuanmengzeng.practice;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.MissingFormatArgumentException;
 import java.util.Random;
 
@@ -138,5 +139,20 @@ public class Utils {
         System.out.println("");
         quickSort(array,start,i);
         quickSort(array,i+1,end);
+    }
+
+    public static void log(Exception e){
+        StackTraceElement[] stackEles = e.getStackTrace();
+        System.out.println(""+e);
+        for (int i=0; i<5&&i<stackEles.length;i++){
+            StackTraceElement ele = stackEles[i];
+            System.out.println(ele.getClassName()+"."+ele.getMethodName()+"():"+ele.getLineNumber());
+        }
+    }
+
+    public static void log(String msg){
+        StackTraceElement[] statckEles = Thread.getAllStackTraces().get(Thread.currentThread());
+        StackTraceElement ele = statckEles[3];
+        System.out.println(ele.getClassName()+"."+ele.getMethodName()+"()_"+ele.getLineNumber()+"  :"+msg);
     }
 }

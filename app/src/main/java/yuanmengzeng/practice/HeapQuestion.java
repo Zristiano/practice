@@ -83,7 +83,10 @@ public class HeapQuestion {
 
     public double mincostToHireWorkers(int[] quality, int[] wage, int K) {
 
-
+        PriorityQueue<double[]> heap = new PriorityQueue<>(
+                (d1,d2)->{
+                    return 0;
+        });
 
 
         PriorityQueue<double[]> valueHeap = new PriorityQueue(new Comparator<double[]>(){

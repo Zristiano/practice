@@ -2,7 +2,7 @@ package yuanmengzeng.study;
 
 public class OutterClass {
 
-    public class InncerClass {
+    public class InnerClass {
 
     }
 }

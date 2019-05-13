@@ -2,10 +2,10 @@ package yuanmengzeng.practice;
 
 
 import javafx.util.Pair;
-import yuanmengzeng.practice.lucid.Game2048;
 import yuanmengzeng.study.*;
 
 import java.awt.*;
+import java.io.*;
 import java.lang.annotation.Annotation;
 import java.math.BigDecimal;
 import java.util.*;
@@ -14,145 +14,37 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
-    class  Edge{
-        Character v;
-        Character u;
-        int weight;
-        Edge(Character V, Character U, int Weight){
-            v = V;
-            u = U;
-            weight = Weight;
-        }
-    }
-
-
-    public static List<Edge> mstGen(List<Edge> graph){
-        List<Edge> ans = new ArrayList<>();
-        HashSet<Character> vertice = new HashSet<>();
-        for(Edge e : graph){
-            vertice.add(e.u);
-            vertice.add(e.v);
-        }
-        HashSet<Character> countV = new HashSet<>();
-        TreeSet<Edge> set = new TreeSet<>(new Comparator<Edge>() {
-            @Override
-            public int compare(Edge o1, Edge o2) {
-                return o1.weight - o2.weight;
-            }
-        });
-        for(Edge e: graph){
-            set.add(e);
-        }
-        for(Edge e : set){
-            if(countV.size()==vertice.size()){
-                return ans;
-            }
-            if(countV.contains(e.u)&& countV.contains(e.v)){
-                continue;
-            }else{
-                ans.add(e);
-                countV.add(e.u);
-                countV.add(e.v);
-            }
-        }
-        return ans;
-    }
-
-
-
-
-
-
-
-    class TreeNode{
-        TreeNode[] children;
-        int val;
-        TreeNode(int x){
-            val = x;
-        }
-    }
-
-    public static  List<List<Character>> getlist(List<Character> list, int k){
-        List<List<Character>> ans = new ArrayList<>();
-        if(list.size()<k){
-            return ans;
-        }
-//        HashSet<Character> set = new HashSet<>();
-
-        int[] count = new int[26];
-
-        return ans;
-    }
-
-
-
-    public static int bigavg(TreeNode root){
-        int[] max = new int[1];
-        posto(root,max);
-        return max[0];
-    }
-
-    public static int posto(TreeNode root,int[] max){
-        if(root==null){return 0;}
-        int count = 0;
-        for(TreeNode child : root.children){
-            count+=posto(root,max);
-        }
-        for(TreeNode child :root.children){
-            root.val+=child.val;
-        }
-        max[0] = Math.max(max[0],root.val/(++count));
-        return count;
-    }
-
-
-
     public static void main(String[] args) {
-        Main main = new Main();
-        Game2048 game = new Game2048();
-        game.play();
+        new RuntimeTest().test();
     }
-
-    public int fibonacciLoop(int n1, int n2, int n3, int len){
-        if(len==1) return n1;
-        if(len==2) return n2;
-        if(len==3) return n3;
-        for(int i=4;i<=len;i++){
-            int temp = n2;
-            n2 = n3;
-            n3 = n3+n1;
-            n1 = temp;
-            System.out.print(n3+",");
+    private void readFromFile(String fileName){
+        try {
+            FileReader fIn = new FileReader(fileName);
+            BufferedReader reader = new BufferedReader(fIn);
+            String s = reader.readLine();
+            System.out.println(s);
+        }catch (IOException e){
+            Utils.println("file cannot be found");
         }
-        return n3;
     }
 
-    public int fibonacciRecursive(int n1, int n2, int n3, int len){
-        Map<Integer, Integer> cache = new HashMap<>();
-        cache.put(1,n1);
-        cache.put(2,n2);
-        cache.put(3,n3);
-        return fibonacciHelper(len,cache);
-    }
-    /**  8     7      6
-     *   7    6,4    5,3
-     *   6   5,3
-     *   5  4,2   2
-     *   4 3,1
-     *   3
-     *   2
-     *   1
-     */
 
-    private int fibonacciHelper( int idx, Map<Integer,Integer> cache){
-        Integer n1 = cache.get(idx-1);
-        if (n1==null) n1 = fibonacciHelper(idx-1,cache);
-        Integer n2 = cache.get(idx-3);
-        if (n2==null) n2 = fibonacciHelper(idx-3,cache);
-        int n3 = n1+n2;
-        cache.put(idx,n3);
-        return n3;
+    public String reverseWords(String s) {
+        String[] ss = s.split("\\s+");
+        int len = ss.length;
+        if(len==0) return "";
+        StringBuilder sb = new StringBuilder();
+        for(int i=len-1; i>=0; i--){
+            if (ss[i].length()>0){
+                sb.append(ss[i].toCharArray()).append(" ");
+            }
+        }
+        if(sb.length()>0){
+            sb.deleteCharAt(sb.length()-1);
+        }
+        return sb.toString();
     }
+
 
 
 
@@ -401,6 +293,48 @@ public class Main {
         System.out.print(bytes);
 
         ThreadLocalRandom threadRandom = ThreadLocalRandom.current();
+    }
+
+
+    public int fibonacciLoop(int n1, int n2, int n3, int len){
+        if(len==1) return n1;
+        if(len==2) return n2;
+        if(len==3) return n3;
+        for(int i=4;i<=len;i++){
+            int temp = n2;
+            n2 = n3;
+            n3 = n3+n1;
+            n1 = temp;
+            System.out.print(n3+",");
+        }
+        return n3;
+    }
+
+    public int fibonacciRecursive(int n1, int n2, int n3, int len){
+        Map<Integer, Integer> cache = new HashMap<>();
+        cache.put(1,n1);
+        cache.put(2,n2);
+        cache.put(3,n3);
+        return fibonacciHelper(len,cache);
+    }
+    /**  8     7      6
+     *   7    6,4    5,3
+     *   6   5,3
+     *   5  4,2   2
+     *   4 3,1
+     *   3
+     *   2
+     *   1
+     */
+
+    private int fibonacciHelper( int idx, Map<Integer,Integer> cache){
+        Integer n1 = cache.get(idx-1);
+        if (n1==null) n1 = fibonacciHelper(idx-1,cache);
+        Integer n2 = cache.get(idx-3);
+        if (n2==null) n2 = fibonacciHelper(idx-3,cache);
+        int n3 = n1+n2;
+        cache.put(idx,n3);
+        return n3;
     }
 
     private void decimalTest() {

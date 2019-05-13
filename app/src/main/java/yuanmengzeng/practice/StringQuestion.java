@@ -187,44 +187,6 @@ public class StringQuestion {
         return sb.toString();
     }
 
-    public int myAtoi(String str) {
-        int sign = 1;
-        boolean startConverting = false;
-        int num = 0 ;
-        int lastNum =num;
-        for(int i=0; i<str.length(); i++){
-            char c = str.charAt(i);
-            if(!startConverting){  // we don't start converting yet
-                if(c==' '){
-                    continue;
-                }else if(c=='+'||c=='-'){
-                    sign = (c == '+')? sign :-1*sign;
-                    startConverting = true;
-                    continue;
-                }else if(c>='0'&&c<='9'){
-                    num = (c-'0')*sign;
-                    lastNum =num;
-                    startConverting = true;
-                }else{
-                    break;
-                }
-            }else if(c>='0' && c<='9'){
-                num = num*10  + sign*(c-'0');
-                if(/*(num-sign*(c-'0'))/10 != lastNum &&*/ lastNum!=0 && num/lastNum<10){
-                    if(lastNum<0){
-                        return -(1<<31);
-                    }else {
-                        return (1<<31)-1;
-                    }
-                }else{
-                    lastNum = num;
-                }
-            }else{
-                break;
-            }
-        }
-        return num;
-    }
 
     public boolean isMatch(String s, String p) {
         if(s==null || p == null){
@@ -565,5 +527,97 @@ public class StringQuestion {
             }
         }
         return count;
+    }
+
+    public int atoi(String s){
+        if (s==null || s.isEmpty()){
+            throw new IllegalArgumentException("parameter is not an integer");
+        }
+        int sign = 1;
+        long res = 0;
+        char[] chars = s.toCharArray();
+        int i = 0;
+        while(i<chars.length && (chars[i]=='+'||chars[i]=='-')){
+            if (chars[i]=='-') sign*=-1;
+            i++;
+        }
+        boolean start = false;
+        while(i<chars.length && chars[i]>='0' && chars[i]<='9'){
+            start = true;
+            res = res*10+(chars[i]-'0');
+            i++;
+        }
+        if (start && i==chars.length && res<=Integer.MAX_VALUE && res>=Integer.MIN_VALUE){
+            return (int)(sign*res);
+        }
+        throw new IllegalArgumentException("parameter is not an integer");
+    }
+
+
+    /**
+     * Parenthesis matching with '*', '*' can be used as '('  ')'  ''
+     * <p>
+     *   Example:
+     *   <br> (((*)) -> true
+     *   <br> ((*** -> true
+     *   <br> (()))* -> false
+     * <p/>
+     */
+    public boolean validStarParenthesis(String string){
+        int l = 0, r =0;
+        int starCnt = 0;
+        char[] s = string.toCharArray();
+        while(r<s.length){
+            if(s[r]!=')'){
+                r++;
+            }else{
+                if(l<r){
+                    l++;
+                    r++;
+                    while (l<r && s[l]!='('){
+                        if (s[l] == '*') starCnt++;
+                        l++;
+                    }
+                }else if (starCnt>0){
+                    starCnt--;
+                    r++;
+                    while (l<r && s[l]!='('){
+                        if (s[l] == '*') starCnt++;
+                        l++;
+                    }
+                }else{
+                    return false;
+                }
+            }
+        }
+        if (l<s.length){
+            int leftPaCnt = 0;
+            for (;l<s.length;l++){
+                if(s[l]=='(') leftPaCnt++;
+                else if (s[l]=='*' && leftPaCnt>0) leftPaCnt--;
+            }
+            return leftPaCnt==0;
+        }
+        return true;
+    }
+
+    public int countPalindrome(String s){
+        int count = 0;
+        char[] chars = s.toCharArray();
+        for(int i=0; i< s.length()-1; i++){
+            count+=numsOfPalindrome(chars,i,i);
+            count+=numsOfPalindrome(chars,i,i+1);
+        }
+        return count + 1;
+    }
+
+    private int numsOfPalindrome(char[] array, int i, int j){
+        int num = 0;
+        while(i>=0 && j<array.length && array[i] == array[j]){
+            num++;
+            i--;
+            j++;
+        }
+        return num;
     }
 }

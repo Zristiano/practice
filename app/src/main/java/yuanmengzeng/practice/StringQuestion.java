@@ -620,4 +620,164 @@ public class StringQuestion {
         }
         return num;
     }
+
+    public List<String> missingWord(String s, String t){
+        s = s.trim();
+        t = t.trim();
+        List<String> res = new LinkedList<>();
+        String[] ss = s.split(" ");
+        String[] ts = t.split(" ");
+        if(ss.length==0 || ts.length==0) return res;
+        int j = 0 ;
+        for (String first : ss){
+            if (j<ts.length && first.equals(ts[j])){
+                j++;
+            }else {
+                res.add(first);
+            }
+        }
+        return res;
+    }
+
+
+    public String[] subString(String s){
+        Character[] vowelArray = {'a','e','i','o','u'};
+        String[] res = new String[2];
+        Set<Character> vowels = new HashSet<>(Arrays.asList(vowelArray));
+        res[0] = "z";
+        res[1] = "a";
+        char[] sChars = s.toCharArray();
+        int lastConsonantIdx = sChars.length-1;
+        while (lastConsonantIdx>=0 && vowels.contains(sChars[lastConsonantIdx])) lastConsonantIdx--;
+        if (lastConsonantIdx<=0) return res;
+
+        // find out the smallest substring
+        List<int[]> smallestIdxs = new ArrayList<>();
+        int nearestConsonantIdx = lastConsonantIdx;
+        char smallestVowel = 'z';
+        char nearestDiffChar = sChars[lastConsonantIdx];
+        for(int i=lastConsonantIdx ; i>=0; i--){
+            if (vowels.contains(sChars[i])){
+                if(sChars[i]<smallestVowel){
+                    smallestVowel = sChars[i];
+                    smallestIdxs.clear();
+                    smallestIdxs.add(new int[]{i,nearestConsonantIdx+1});
+                    if(i+1<sChars.length) nearestDiffChar = sChars[i+1];
+                }else if (sChars[i]==smallestVowel){
+                    // if the next following character is the same vowel as current one
+                    if(sChars[i+1]==smallestVowel){
+                        if(smallestVowel<nearestDiffChar) {
+                            smallestIdxs.get(smallestIdxs.size() - 1)[0] = i;
+                        }
+                    }else {
+                        smallestIdxs.add(new int[]{i, nearestConsonantIdx+1});
+                        if(i+1<sChars.length) nearestDiffChar = sChars[i+1];
+                    }
+                }
+            }else {
+                nearestConsonantIdx = i;
+                if(i+1<sChars.length) nearestDiffChar = sChars[i+1];
+            }
+        }
+        for (int[] subStringBoudry : smallestIdxs){
+            String string = s.substring(subStringBoudry[0], subStringBoudry[1]);
+            System.out.println("smallest vowel idx:"+subStringBoudry[0] + "   consonant idx:"+subStringBoudry[1]+"  subString : "+string);
+            res[0] = res[0].compareTo(string)<=0 ? res[0] : string;
+        }
+
+
+        // find out the largest substring
+        char largestVowel = 'a'-1 ;
+        nearestDiffChar = sChars[lastConsonantIdx];
+        List<Integer> largestVowelIdxs = new ArrayList<>();
+        for (int i=lastConsonantIdx; i>=0; i--){
+            if (vowels.contains(sChars[i])){
+                if (sChars[i]>largestVowel){
+                    largestVowel = sChars[i];
+                    largestVowelIdxs.clear();
+                    largestVowelIdxs.add(i);
+                    if(i+1<sChars.length) nearestDiffChar = sChars[i+1];
+                }else if (sChars[i]==largestVowel){
+                    // if the next following character is the same vowel as current one
+                    if (sChars[i+1]==largestVowel){
+                        if (largestVowel > nearestDiffChar){
+                            largestVowelIdxs.remove(largestVowelIdxs.size()-1);
+                            largestVowelIdxs.add(i);
+                        }
+                    }else {
+                        largestVowelIdxs.add(i);
+                        if(i+1<sChars.length) nearestDiffChar = sChars[i+1];
+                    }
+                }
+            }else {
+                if(i+1<sChars.length) nearestDiffChar = sChars[i+1];
+            }
+        }
+        for (Integer idx : largestVowelIdxs){
+            System.out.println("largest idx:"+idx);
+            String string = s.substring(idx, lastConsonantIdx+1);
+            res[1] = res[1].compareTo(string)>0 ? res[1] : string;
+        }
+        return res;
+    }
+
+
+    public String[] subStringLuo(String s) {
+//        char[] vo = {'a', 'e','i','o','u'};
+//        char[] con = {'b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'};
+//
+        Character[] vo = {'a','e','i','o','u'};
+        Set<Character> vset = new HashSet<Character>(Arrays.asList(vo));
+        char[] scarr = s.toCharArray();
+        int lastchar = scarr.length - 1;
+        while(lastchar >= 0 && vset.contains(scarr[lastchar])) {
+            lastchar--;
+        }
+        String highest = "";
+        for(int i = 0; i < lastchar; i++) {
+            if(vset.contains(scarr[i])) {
+                //optimization
+                while (i < lastchar - 1 && scarr[i] == scarr[i + 1] && scarr[i] < scarr[lastchar]) {
+                    i++;
+                }
+                System.out.println("largest i="+i);
+                String temp = s.substring(i, lastchar + 1);
+                if(highest.compareTo(temp) < 0) {
+                    highest = temp;
+                }
+            }
+        }
+        String lowest = s.substring(0, lastchar + 1);
+        int vostart = 0;
+        int conend = 1;
+        while(conend <= lastchar && vset.contains(scarr[conend])) {
+            conend++;
+        }
+        while(vostart <= conend && conend <= lastchar) {
+            //optimization
+            while(vostart < lastchar && !vset.contains(scarr[vostart])) {
+                vostart++;
+            }
+            if(vostart == lastchar) {
+                break;
+            }
+            if(conend < vostart){
+                conend = vostart + 1;
+                while(conend < lastchar && vset.contains(scarr[conend])) {
+                    conend++;
+                }
+            }
+            System.out.println("smallest i="+vostart);
+            String temp = s.substring(vostart, conend + 1);
+            if(lowest.compareTo(temp) > 0) {
+                lowest = temp;
+            }
+            while (vostart < conend - 1 && scarr[vostart] == scarr[vostart+1] && scarr[vostart] < scarr[conend]) {
+                vostart++;
+            }
+            vostart++;
+
+        }
+        return new String[]{lowest, highest};
+    }
 }

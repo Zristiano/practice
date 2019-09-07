@@ -15,16 +15,30 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
 
     public static void main(String[] args) {
-        int[] arr = {4,8,6,20,12};
-        ArrayQuestion aQ = new ArrayQuestion();
-        aQ.quickSort(arr);
-        Utils.printArrayInt(arr);
-        System.out.println();
-        int maxInterval = aQ.maxIntervalWithoutBadNumber(arr, 1, 30);
-        System.out.println("max interval:"+maxInterval);
 
-//        int time = aQ.minmumTypingTime("111215548767","789456123");
-//        System.out.println("time:"+time);
+        StringQuestion sq = new StringQuestion();
+        /**
+         * eeeeeeeeeeeeeeeiiiiiiiiiiiiiiiieieieieieiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeiiiiiiiiiiiiiiiiwiiiiiiiiiiiiiiiibbbbbb
+         * eeeeeeceeeeeeb
+         */
+        String s = "eeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiib";
+        s = s.toLowerCase();
+        long startTime = 0;
+        startTime = System.currentTimeMillis();
+        String[] luoAns = sq.subStringLuo(s);
+        long luoLatency = System.currentTimeMillis()-startTime;
+
+        startTime = System.currentTimeMillis();
+        String[] myAns = sq.subString(s);
+        long myLatency = System.currentTimeMillis()-startTime;
+
+        System.out.printf("my latency : %d,  luo latency : %d\n",myLatency,luoLatency);
+        System.out.println("first equals : "+ (myAns[0].equals(luoAns[0])));
+        System.out.println("second equals : "+ (myAns[1].equals(luoAns[1])));
+        System.out.println(myAns[0]);
+        System.out.println(luoAns[0]);
+        System.out.println(myAns[1]);
+        System.out.println(luoAns[1]);
     }
 
     private void readFromFile(String fileName){
@@ -52,6 +66,7 @@ public class Main {
         if(sb.length()>0){
             sb.deleteCharAt(sb.length()-1);
         }
+        int[][] arr = new int[0][0];
         return sb.toString();
     }
 

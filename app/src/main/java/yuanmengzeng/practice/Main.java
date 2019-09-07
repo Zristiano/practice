@@ -15,8 +15,18 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
 
     public static void main(String[] args) {
-        new RuntimeTest().test();
+        int[] arr = {4,8,6,20,12};
+        ArrayQuestion aQ = new ArrayQuestion();
+        aQ.quickSort(arr);
+        Utils.printArrayInt(arr);
+        System.out.println();
+        int maxInterval = aQ.maxIntervalWithoutBadNumber(arr, 1, 30);
+        System.out.println("max interval:"+maxInterval);
+
+//        int time = aQ.minmumTypingTime("111215548767","789456123");
+//        System.out.println("time:"+time);
     }
+
     private void readFromFile(String fileName){
         try {
             FileReader fIn = new FileReader(fileName);

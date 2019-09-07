@@ -37,6 +37,25 @@ public class Utils {
         return -1;
     }
 
+    public static int binarySearchOrInsertPos(int[] array, int key){
+        int lo = 0,  hi = array.length;
+        while(lo<hi-1){
+            int mid = (hi-lo)/2;
+            if(array[mid] < key){
+                lo = mid;
+            }else if(array[mid]>key){
+                hi = mid;
+            }else {
+                return mid;
+            }
+        }
+        if(array[lo]==key) return lo;
+        if(array[hi]==key) return hi;
+        if(lo<key && key<hi) return hi;
+        if(lo>key) return lo;
+        return hi+1;
+    }
+
     public static boolean isEmpty(String s) {
         return s == null || s.length() == 0;
     }

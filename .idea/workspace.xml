@@ -5,45 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc65b6ac-f7bd-4550-9e31-4bf2bc699c85" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/MultipleInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/HeapQuestion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/HeapQuestion$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/HeapQuestion$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/HeapQuestion$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/HeapQuestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/HeapQuestion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main$Edge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main$TreeNode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main$User.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main$User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/StringQuestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/StringQuestion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Game2048$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Game2048$Direction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Game2048.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Lucid$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Lucid$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Lucid$Game2048$Direction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Lucid$Game2048.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Lucid$LineParser$LineReceiver.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Lucid$LineParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Lucid.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Othello.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/OthelloBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/lucid/Othello_online.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/study/InnerSub.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/study/InnerSub.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/study/OutterClass$InncerClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/study/OutterClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/study/OutterClass.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/HeapQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/HeapQuestion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/StringQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/StringQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/rice/lucid/Game2048.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/rice/lucid/Lucid.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/rice/lucid/Othello.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/rice/lucid/OthelloBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/rice/lucid/Othello_online.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/InnerSub.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/InnerSub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/OutterClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/OutterClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/PPImageFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/PPImageFilter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -100,7 +67,7 @@
     <session id="-1264309968">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="130" />
+          <entry key="project.closed" value="134" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="10" />
           <entry key="project.open.time.10" value="7" />
@@ -133,11 +100,12 @@
           <entry key="project.open.time.38" value="4" />
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.4" value="6" />
-          <entry key="project.open.time.41" value="1" />
+          <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.41" value="2" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.43" value="2" />
-          <entry key="project.open.time.48" value="1" />
-          <entry key="project.open.time.49" value="2" />
+          <entry key="project.open.time.48" value="2" />
+          <entry key="project.open.time.49" value="3" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.52" value="1" />
           <entry key="project.open.time.53" value="1" />
@@ -146,7 +114,7 @@
           <entry key="project.open.time.8" value="5" />
           <entry key="project.open.time.81" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="150" />
+          <entry key="project.opened" value="154" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -154,7 +122,7 @@
           <entry key="class" value="2" />
           <entry key="gradle" value="4" />
           <entry key="html" value="8" />
-          <entry key="java" value="377" />
+          <entry key="java" value="387" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -162,20 +130,20 @@
           <entry key="CLASS" value="2" />
           <entry key="Groovy" value="4" />
           <entry key="HTML" value="8" />
-          <entry key="JAVA" value="377" />
+          <entry key="JAVA" value="387" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
           <entry key="html" value="519" />
-          <entry key="java" value="72562" />
+          <entry key="java" value="76885" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="519" />
-          <entry key="JAVA" value="72562" />
+          <entry key="JAVA" value="76885" />
           <entry key="PLAIN_TEXT" value="8" />
         </counts>
       </usages-collector>
@@ -186,12 +154,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-              <folding>
-                <element signature="e#349#350#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="342">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -201,6 +165,78 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
               <caret line="32" column="39" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Calculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="8" selection-start-line="8" selection-end-line="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/MathQuestion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/PPImageFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+              <folding>
+                <element signature="e#757#758#0" expanded="true" />
+                <element signature="e#792#793#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="705" column="17" lean-forward="true" selection-start-line="705" selection-start-column="17" selection-end-line="705" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#22269#22270#0" expanded="true" />
+                <element signature="e#22298#22299#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/util/Collections.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="200" column="74" lean-forward="true" selection-start-line="200" selection-start-column="74" selection-end-line="200" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1955">
+              <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+              <folding>
+                <element signature="e#1537#1538#0" expanded="true" />
+                <element signature="e#1588#1589#0" expanded="true" />
+                <element signature="e#1632#1633#0" expanded="true" />
+                <element signature="e#1669#1670#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -218,9 +254,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>intvalue</find>
-      <find>18069</find>
-      <find>retain</find>
       <find>tree</find>
       <find>-</find>
       <find>maxva</find>
@@ -248,6 +281,9 @@
       <find>sleep</find>
       <find>sleep()</find>
       <find>runtime</find>
+      <find>quick</find>
+      <find>rotate</find>
+      <find>binary</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -847,7 +883,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/TestFather.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/TestInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/StringPractice.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/PPImageFilter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/InnerSub.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/CompileClass.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/ScannerTest.java" />
@@ -866,9 +901,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/NumberQuestion.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/ParameterizedType.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Solution.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Utils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/FileOperation.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/MathQuestion.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/RegexTest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ListQuestion.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/GraphQuestion.java" />
@@ -881,13 +914,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/lucid/Othello_online.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/lucid/Othello.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/Test.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/OutterClass.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/rice/lucid/Test.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/MultipleInterface.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/HeapQuestion.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/MathQuestion.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/PPImageFilter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/StringQuestion.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Utils.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java" />
       </list>
     </option>
   </component>
@@ -904,10 +940,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="-1718" />
+    <option name="y" value="130" />
+    <option name="width" value="1552" />
+    <option name="height" value="840" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -944,7 +980,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1007,12 +1042,24 @@
               <item name="yuanmengzeng" type="462c0819:PsiDirectoryNode" />
               <item name="study" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="practice" type="b2602c69:ProjectViewProjectNode" />
+              <item name="practice" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="yuanmengzeng" type="462c0819:PsiDirectoryNode" />
+              <item name="study" type="462c0819:PsiDirectoryNode" />
+              <item name="study" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1022,7 +1069,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553014152407" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567757725489" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../comp504/final-chatapp" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -1300,11 +1347,15 @@
       <workItem from="1552448408329" duration="1292000" />
       <workItem from="1553012468881" duration="2240000" />
       <workItem from="1554872106281" duration="325000" />
+      <workItem from="1557760866145" duration="182000" />
+      <workItem from="1563432555612" duration="633000" />
+      <workItem from="1567585941619" duration="507000" />
+      <workItem from="1567722757445" duration="14143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="522728000" />
+    <option name="totallyTimeSpent" value="538193000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1316,10 +1367,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-1928" y="4" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" x="787" y="203" width="346" height="633" id="Project" order="0" visible="true" weight="0.211126" />
-      <window_info id="Structure" order="1" weight="0.1577522" />
+      <window_info content_ui="combo" x="787" y="203" width="346" height="633" id="Project" order="0" weight="0.23134328" />
+      <window_info id="Structure" order="1" visible="true" weight="0.25159913" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -1329,15 +1380,15 @@
       <window_info anchor="bottom" id="Messages" order="1" weight="0.31864905" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32998884" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.48933902" weight="0.17621145" />
-      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.5906183" weight="0.46062407" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.48933902" weight="0.24860647" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.5906183" weight="0.3522854" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.4978678" weight="0.32887402" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.40938166" side_tool="true" weight="0.39910814" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32887402" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4978678" weight="0.30546266" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.4978678" weight="0.37885463" />
       <window_info anchor="right" id="Gradle" order="0" weight="0.114072494" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.31434315" />
@@ -1412,7 +1463,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java</url>
-          <line>408</line>
+          <line>418</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
@@ -1492,7 +1543,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Utils.java</url>
-          <line>115</line>
+          <line>134</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
@@ -1546,7 +1597,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Utils.java</url>
-          <line>154</line>
+          <line>173</line>
           <properties />
           <option name="timeStamp" value="62" />
         </line-breakpoint>
@@ -1594,25 +1645,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java</url>
-          <line>164</line>
+          <line>174</line>
           <properties />
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java</url>
-          <line>160</line>
+          <line>170</line>
           <properties />
           <option name="timeStamp" value="80" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java</url>
-          <line>142</line>
+          <line>152</line>
           <properties />
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java</url>
-          <line>154</line>
+          <line>164</line>
           <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
@@ -1666,7 +1717,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java</url>
-          <line>32</line>
+          <line>42</line>
           <properties />
           <option name="timeStamp" value="96" />
         </line-breakpoint>
@@ -1676,8 +1727,31 @@
           <properties />
           <option name="timeStamp" value="97" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java</url>
+          <line>772</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java</url>
+          <line>781</line>
+          <properties />
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java</url>
+          <line>704</line>
+          <properties />
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="board[pos[0]][pos[1]]" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1733,31 +1807,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/util/TreeSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/TreeQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/rice/lucid/Lucid.java" />
-    <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/awt/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="100" column="21" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/util/Random.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7092">
@@ -1787,13 +1836,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="605" column="20" lean-forward="true" selection-start-line="605" selection-start-column="20" selection-end-line="605" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/util/Arrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="1426" column="50" lean-forward="true" selection-start-line="1426" selection-start-column="50" selection-end-line="1426" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -1839,16 +1881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12204">
-          <caret line="681" column="4" selection-start-line="681" selection-start-column="4" selection-end-line="681" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/InnerSub.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1863,33 +1895,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding>
-            <element signature="e#1384#1385#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/rice/lucid/Othello.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/rice/lucid/Test.java" />
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Calculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3420">
-          <caret line="194" column="44" selection-start-line="194" selection-start-column="44" selection-end-line="194" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1942,13 +1953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/util/Collections.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12078">
-          <caret line="710" column="30" selection-start-line="710" selection-start-column="30" selection-end-line="710" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30654">
@@ -1978,13 +1982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5292">
           <caret line="327" column="67" selection-start-line="327" selection-start-column="67" selection-end-line="327" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/StringQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10494">
-          <caret line="583" column="45" selection-start-line="583" selection-start-column="45" selection-end-line="583" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -2058,6 +2055,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/CompileClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/RuntimeTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -2065,14 +2073,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/MathQuestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/StringQuestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="908">
+          <caret line="644" column="33" lean-forward="true" selection-start-line="644" selection-start-column="33" selection-end-line="644" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/util/TimSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-129">
+          <caret line="261" column="29" lean-forward="true" selection-start-line="261" selection-start-column="29" selection-end-line="261" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="8" selection-start-line="8" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="1829" column="27" selection-start-line="1829" selection-start-column="27" selection-end-line="1829" selection-end-column="27" />
+          <folding>
+            <element signature="e#84738#84739#0" expanded="true" />
+            <element signature="e#84795#84796#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/study/PPImageFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding>
+            <element signature="e#757#758#0" expanded="true" />
+            <element signature="e#792#793#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1955">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+          <folding>
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1588#1589#0" expanded="true" />
+            <element signature="e#1632#1633#0" expanded="true" />
+            <element signature="e#1669#1670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../../../jdk/src.zip!/java/util/Collections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="200" column="74" lean-forward="true" selection-start-line="200" selection-start-column="74" selection-end-line="200" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/ArrayQuestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="705" column="17" lean-forward="true" selection-start-line="705" selection-start-column="17" selection-end-line="705" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#22269#22270#0" expanded="true" />
+            <element signature="e#22298#22299#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding>
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="342">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>

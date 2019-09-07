@@ -21,4 +21,15 @@ public class PPImageFilter {
             }
         }
     }
+
+    public static enum EnumTest {
+
+        Ele1(1),
+        Ele2(2);
+
+        private int value;
+        EnumTest(int val){
+            value = val;
+        }
+    }
 }

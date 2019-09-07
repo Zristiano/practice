@@ -679,6 +679,125 @@ public class ArrayQuestion {
     }
 
 
-    
+    public void quickSort(int[] arr){
+        sort(arr, 0, arr.length);
+    }
+
+    private void sort(int[] arr, int start, int end){
+        if(start>=end) return;
+        int l = start;
+        int r = end-1;
+        while(l<r){
+            while(l<r && arr[l] <= arr[r]) r--;
+            int temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            while(l<r && arr[l] <= arr[r]) l++;
+            temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+        }
+        sort(arr, start, l);
+        sort(arr, l+1, end);
+    }
+
+    public int maxIntervalWithoutBadNumber(int[] badNumbers, int l, int r){
+        int max = 0;
+        Arrays.sort(badNumbers);
+        int startPos = Arrays.binarySearch(badNumbers, l);
+        System.out.println("startPos:"+startPos);
+        int lastLeftBoundry ;
+        if(startPos<0) {
+            // the leftest boundary is not in the array of badNumbers
+            startPos = -startPos - 1;
+            lastLeftBoundry = l;
+        }else {
+            lastLeftBoundry = badNumbers[startPos]+1;
+        }
+        for(int i=startPos; i<badNumbers.length && badNumbers[i]<r ; i++){
+            max = Math.max(badNumbers[i]-lastLeftBoundry, max);
+            lastLeftBoundry = badNumbers[i]+1;
+        }
+        max = Math.max(r-lastLeftBoundry, max);
+        return max;
+    }
+
+    public char MaximumOccuringCharacter(String s){
+        int[] asciiCount = new int[256];
+        for (char c : s.toCharArray()){
+            asciiCount[c]++;
+        }
+        int maxCount = 0;
+        char res = 0;
+        for(char c: s.toCharArray()){
+            if(asciiCount[c]>maxCount){
+                res = c;
+                maxCount = asciiCount[c];
+            }
+        }
+        return res;
+    }
+
+    /**
+     *    423692
+     *
+     *    9 2 3
+     *    8 5 7
+     *    6 1 4
+     */
+
+    public int minmumTypingTime(String s, String keyBoard){
+        int time = 0;
+        if (s==null || s.isEmpty()) return time;
+        char[][] board = new char[3][3];
+        int[] curPos = new int[2];
+        char firstChar = s.charAt(0);
+        for(int i=0; i<keyBoard.length(); i++){
+            int row = i/3;
+            int col = i%3;
+            board[row][col] = keyBoard.charAt(i);
+            if (board[row][col]==firstChar){
+                curPos[0] = row;
+                curPos[1] = col;
+            }
+        }
+        for (int i=1; i<s.length(); i++){
+            int curTime = timeForMoving(board, curPos, s.charAt(i));
+            System.out.println("curTime:"+curTime+ "   char:"+s.charAt(i));
+            time+=curTime;
+        }
+        return time;
+    }
+
+    private int timeForMoving(char[][] board, int[] curPos, char target){
+        if(target==board[curPos[0]][curPos[1]]) return 0;
+        boolean[][] visit = new boolean[3][3];
+        visit[curPos[0]][curPos[1]] = true;
+        Queue<int[]> queue = new LinkedList<>();
+        int time = 0;
+        queue.offer(curPos);
+        int posCount = 1;
+        while (!queue.isEmpty()){
+            time++;
+            for(int i=0; i<posCount; i++){
+                int[] pos = queue.poll();
+                int[][] dirs = {{1,0},{0,1},{-1,0},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
+                for(int[] dir : dirs){
+                    int[] newPos = {pos[0]+dir[0],pos[1]+dir[1]};
+                    if(newPos[0]>=0 && newPos[0]<3 && newPos[1]>=0 && newPos[1]<3 && !visit[newPos[0]][newPos[1]]){
+                        if (board[newPos[0]][newPos[1]]==target) {
+                            curPos[0] = newPos[0];
+                            curPos[1] = newPos[1];
+                            return time;
+                        }
+                        visit[newPos[0]][newPos[1]] = true;
+                        queue.offer(newPos);
+                    }
+                }
+            }
+            posCount = queue.size();
+        }
+        return time;
+    }
 }
 

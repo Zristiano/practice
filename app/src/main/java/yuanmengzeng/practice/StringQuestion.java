@@ -620,4 +620,46 @@ public class StringQuestion {
         }
         return num;
     }
+
+
+    public List<String> drainUpperLowerCombination(String s){
+        List<String> res = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        dfs(s.toCharArray(), sb, res, 0, 'a'-'A');
+        return res;
+    }
+
+    private void dfs(char[] chars, StringBuilder sb, List<String> res, int i, int dis){
+        if(i==chars.length){
+            res.add(sb.toString());
+            return;
+        }
+        char lowerCase, upperCase;
+        if('a'<=chars[i] && chars[i]<= 'z'){
+            lowerCase = chars[i];
+            upperCase = (char)(lowerCase - dis);
+            sb.append(lowerCase);
+            dfs(chars, sb, res, i+1, dis);
+            sb.deleteCharAt(i);
+
+            sb.append(upperCase);
+            dfs(chars, sb, res, i+1, dis);
+            sb.deleteCharAt(i);
+
+        }else if ('A'<=chars[i] && chars[i]<='Z'){
+            lowerCase = (char)(chars[i]+dis);
+            upperCase = chars[i];
+            sb.append(lowerCase);
+            dfs(chars, sb, res, i+1, dis);
+            sb.deleteCharAt(i);
+
+            sb.append(upperCase);
+            dfs(chars, sb, res, i+1, dis);
+            sb.deleteCharAt(i);
+        }else{
+            sb.append(chars[i]);
+            dfs(chars, sb, res, i+1, dis);
+            sb.deleteCharAt(i);
+        }
+    }
 }

@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc65b6ac-f7bd-4550-9e31-4bf2bc699c85" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/ratelimiter/CombinedRateLimiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/ratelimiter/DistributedRateLimiter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/ratelimiter/RateInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/ratelimiter/RateListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/ratelimiter/SharedDistributedRateLimiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main$User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/out/production/classes/yuanmengzeng/practice/StringQuestion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/CombinedRateLimiter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/DistributedRateLimiter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/RateInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/RateListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/yuanmengzeng/SharedDistributedRateLimiter.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -70,7 +75,7 @@
         <counts>
           <entry key="project.closed" value="130" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="10" />
+          <entry key="project.open.time.1" value="11" />
           <entry key="project.open.time.10" value="7" />
           <entry key="project.open.time.11" value="4" />
           <entry key="project.open.time.12" value="3" />
@@ -114,7 +119,7 @@
           <entry key="project.open.time.8" value="5" />
           <entry key="project.open.time.81" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="151" />
+          <entry key="project.opened" value="152" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -160,19 +165,21 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+              <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-270" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -921,7 +928,6 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -949,6 +955,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -959,7 +966,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567900098437" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567900254582" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../comp504/final-chatapp" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -1238,11 +1245,12 @@
       <workItem from="1553012468881" duration="2240000" />
       <workItem from="1554872106281" duration="325000" />
       <workItem from="1567899461356" duration="637000" />
+      <workItem from="1567900234678" duration="21000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="523365000" />
+    <option name="totallyTimeSpent" value="523386000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1257,7 +1265,7 @@
     <frame x="-1928" y="4" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" x="787" y="203" width="346" height="633" id="Project" order="0" visible="true" weight="0.21321961" />
+      <window_info content_ui="combo" x="787" y="203" width="346" height="633" id="Project" order="0" visible="true" weight="0.2153518" />
       <window_info id="Structure" order="1" weight="0.1577522" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -1268,14 +1276,14 @@
       <window_info anchor="bottom" id="Messages" order="1" weight="0.31772575" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32998884" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.48933902" weight="0.17621145" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.48933902" visible="true" weight="0.1761427" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.5906183" weight="0.46062407" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.4978678" weight="0.32887402" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.40938166" side_tool="true" weight="0.39910814" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32887402" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4978678" visible="true" weight="0.30546266" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4978678" weight="0.30546266" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Gradle" order="0" weight="0.114072494" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
@@ -1978,32 +1986,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/CombinedRateLimiter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/CombinedRateLimiter.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/yuanmengzeng/practice/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="45" lean-forward="true" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
         </state>
       </provider>
     </entry>

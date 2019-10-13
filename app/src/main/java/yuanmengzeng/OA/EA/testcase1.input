@@ -1,0 +1,3 @@
+-- Script only contains one simple query and comment( this line is a comment)
+
+Select * from database.table where dt = "2015-08-08";

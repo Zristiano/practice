@@ -249,4 +249,198 @@ public class GraphQuestion {
     public int getLoopCount(){
         return loopCount;
     }
+
+    public List<String> getRelationship(List<List<String>> relationships, String name1, String name2){
+        Map<String, Map<String, String>> relations = new HashMap<>();
+        for(List<String> relationship : relationships){
+//            relations.compute(relationship.get(0), new BiFunction<String, Map<String, String>, Map<String, String>>() {
+//                @Override
+//                public Map<String, String> apply(String s, Map<String, String> stringStringMap) {
+//                    if (stringStringMap == null ){
+//                        stringStringMap = new HashMap<>();
+//                    }
+//                    stringStringMap.put(relationship.get(2), relationship.get(1));
+//                    return stringStringMap;
+//                }
+//            });
+            relations.compute(relationship.get(0), (key, oldValue)->{
+                if (oldValue==null) {
+                    oldValue = new HashMap<>();
+                }
+                oldValue.put(relationship.get(2), relationship.get(1));
+                return oldValue;
+            });
+        }
+
+        List<String> res = new ArrayList<>();
+        Set<String> visited = new HashSet<>();
+        visited.add(name1);
+        DFS(relations, res, name1, name1, name2, visited);
+        return res;
+    }
+    private void DFS(Map<String, Map<String, String>> relations, List<String> res, String presentRelation, String curPerson, String endPerson, Set<String> visited){
+        if (curPerson.equals(endPerson)) {
+            res.add(presentRelation);
+            return;
+        }
+        Map<String, String> relation = relations.get(curPerson);
+        for (Map.Entry<String, String> entry : relation.entrySet()){
+            if(!visited.add(entry.getKey())) continue;
+            String nextRelation = presentRelation +" "+ entry.getValue()+ " " + entry.getKey();
+            DFS(relations, res, nextRelation, entry.getKey(), endPerson, visited);
+            visited.remove(entry.getKey());
+        }
+    }
+
+    /**
+     * {1,2,1,3,4},
+     * {1,5,2,2,2},
+     * {4,5,1,9,7},
+     * {3,5,3,7,6},
+     * {4,3,1,7,3}
+     *
+     */
+    public int[][] findPlateau(int[][] matrix){
+        int[][] plateau = new int[matrix.length][matrix[0].length];
+        boolean[][] visited = new boolean[matrix.length][matrix[0].length];
+        int[][] dirs = {{-1,-1}, {-1,0}, {-1, 1}, {0, 1}, {1,1}, {1,0}, {1,-1}, {0,-1}};
+        for (int i=0; i<matrix.length; i++){
+            for (int j=0; j<matrix[0].length; j++){
+                if (visited[i][j]) continue;
+                int aroundMax = findAroundMax(matrix, dirs, i, j, visited);
+                if (aroundMax <= matrix[i][j]){
+                    markPlateau(matrix, plateau, dirs, i, j, matrix[i][j]);
+                }
+
+            }
+        }
+        return plateau;
+    }
+
+    private void markPlateau(int[][] matrix, int[][] plateau, int[][] dirs, int i, int j, int peak){
+        if (matrix[i][j]!=peak || plateau[i][j]==1){
+            return;
+        }
+        plateau[i][j] = 1;
+        for (int[] dir : dirs){
+            int nextI = dir[0]+i;
+            int nextJ = dir[1]+j;
+            if (nextI>=0 && nextI<matrix.length && nextJ>=0 && nextJ<matrix[0].length){
+                markPlateau(matrix, plateau, dirs, nextI, nextJ, peak);
+            }
+        }
+    }
+
+    private int findAroundMax(int[][] matrix, int[][] dirs, int i, int j, boolean[][] visited){
+        int max = Integer.MIN_VALUE;
+        if (visited[i][j]) return max;
+        visited[i][j] = true;
+        for (int[] dir : dirs){
+            int checkI = i+dir[0];
+            int checkJ = j+dir[1];
+            if (checkI>=0 && checkI<matrix.length && checkJ>=0 && checkJ<matrix[0].length){
+                if(matrix[checkI][checkJ]==matrix[i][j]){
+                    max = Math.max(max, findAroundMax(matrix,dirs,checkI,checkJ,visited));
+                }else {
+                    max = Math.max(max, matrix[checkI][checkJ]);
+                }
+            }
+        }
+        return max;
+    }
+
+    public int[][] flood(int[][] matrix){
+        Deque<Point> highPoints = getHighPoints(matrix);
+        int[][] floods = new int[matrix.length][matrix[0].length];
+        int[][] curFloods = new int[matrix.length][matrix[0].length];
+        int[][] dirs = {{-1,-1}, {-1,0}, {-1, 1}, {0, 1}, {1,1}, {1,0}, {1,-1}, {0,-1}};
+        while (!highPoints.isEmpty()){
+            Deque<Point> waterPoints = new LinkedList<>();
+            Point peak = highPoints.poll();
+            curFloods[peak.x][peak.y] = 1;
+            waterPoints.offer(peak);
+            while (!waterPoints.isEmpty()){
+                Point water = waterPoints.poll();
+                flowToLowerPoint(matrix, waterPoints, curFloods, dirs, water.x, water.y);
+            }
+            for (int i=0; i<floods.length; i++){
+                for (int j=0; j<floods[0].length; j++){
+                    floods[i][j] += curFloods[i][j];
+                    curFloods[i][j] = 0;
+                }
+            }
+        }
+        return floods;
+    }
+
+    private void flowToLowerPoint(int[][] matrix, Deque<Point> waterPoints, int[][] curFloods, int[][] dirs, int i, int j){
+        for (int[] dir : dirs){
+            int checkI = i+dir[0];
+            int checkJ = j+dir[1];
+            if(checkI>=0 && checkI<matrix.length && checkJ>=0 && checkJ<matrix[0].length){
+                if (curFloods[checkI][checkJ]==1) continue;
+                if (matrix[checkI][checkJ]<matrix[i][j]){
+                    curFloods[checkI][checkJ] = 1;
+                    waterPoints.add(new Point(checkI,checkJ));
+                }
+            }
+        }
+    }
+
+    public Deque<Point> getHighPoints(int[][] matrix){
+        Deque<Point> highQueue = new LinkedList<>();
+        int[][] highPoints = new int[matrix.length][matrix[0].length];
+        int[][] dirs = {{-1,-1}, {-1,0}, {-1, 1}, {0, 1}, {1,1}, {1,0}, {1,-1}, {0,-1}};
+        for (int i=0; i<highPoints.length; i++) Arrays.fill(highPoints[i],-1);
+        for (int i=0; i<matrix.length; i++){
+            for (int j=0; j<matrix[0].length; j++){
+                if(highPoints[i][j]!=-1) continue;
+                checkHighPoint(matrix, highPoints, highQueue, dirs, i, j);
+            }
+        }
+        return highQueue;
+    }
+
+    private void checkHighPoint(int[][] matrix, int[][] highPoints, Deque<Point> highQueue, int[][] dirs, int i, int j){
+        for(int[] dir : dirs){
+            int checkI = i+dir[0];
+            int checkJ = j+dir[1];
+            if(checkI>=0 && checkI<highPoints.length && checkJ>=0 && checkJ<highPoints[0].length){
+                if(matrix[i][j]<=matrix[checkI][checkJ]){
+                    highPoints[i][j] = 0;
+                    return;
+                }
+            }
+        }
+        highPoints[i][j] = 1;
+        highQueue.add(new Point(i,j));
+    }
+
+    public int[][] findHighpoints(int[][] matrix){
+        int[][] highPoints = new int[matrix.length][matrix[0].length];
+        int[][] dirs = {{-1,-1}, {-1,0}, {-1, 1}, {0, 1}, {1,1}, {1,0}, {1,-1}, {0,-1}};
+        for (int i=0; i<highPoints.length; i++) Arrays.fill(highPoints[i],-1);
+        for (int i=0; i<matrix.length; i++){
+            for (int j=0; j<matrix[0].length; j++){
+                if(highPoints[i][j]!=-1) continue;
+                checkHighPoint(matrix, highPoints, dirs, i, j);
+            }
+        }
+        return highPoints;
+    }
+
+    private void checkHighPoint(int[][] matrix, int[][] highPoints, int[][] dirs, int i, int j){
+        for(int[] dir : dirs){
+            int checkI = i+dir[0];
+            int checkJ = j+dir[1];
+            if(checkI>=0 && checkI<highPoints.length && checkJ>=0 && checkJ<highPoints[0].length){
+                if(matrix[i][j]<=matrix[checkI][checkJ]){
+                    highPoints[i][j] = 0;
+                    return;
+                }
+            }
+        }
+        highPoints[i][j] = 1;
+    }
+
 }

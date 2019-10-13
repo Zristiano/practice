@@ -1,0 +1,4 @@
+-- two hyphens or /*..*/ in "" or '', which should not be regarded as a comment
+
+Select * from database.table where value = "--this is a string";
+Select * from database.table where value = '/*this is also a string*/';

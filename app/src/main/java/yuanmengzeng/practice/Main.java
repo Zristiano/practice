@@ -15,31 +15,62 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
 
     public static void main(String[] args) {
-
-        StringQuestion sq = new StringQuestion();
-        /**
-         * eeeeeeeeeeeeeeeiiiiiiiiiiiiiiiieieieieieiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeiiiiiiiiiiiiiiiiwiiiiiiiiiiiiiiiibbbbbb
-         * eeeeeeceeeeeeb
-         */
-        String s = "eeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiib";
-        s = s.toLowerCase();
-        long startTime = 0;
-        startTime = System.currentTimeMillis();
-        String[] luoAns = sq.subStringLuo(s);
-        long luoLatency = System.currentTimeMillis()-startTime;
-
-        startTime = System.currentTimeMillis();
-        String[] myAns = sq.subString(s);
-        long myLatency = System.currentTimeMillis()-startTime;
-
-        System.out.printf("my latency : %d,  luo latency : %d\n",myLatency,luoLatency);
-        System.out.println("first equals : "+ (myAns[0].equals(luoAns[0])));
-        System.out.println("second equals : "+ (myAns[1].equals(luoAns[1])));
-        System.out.println(myAns[0]);
-        System.out.println(luoAns[0]);
-        System.out.println(myAns[1]);
-        System.out.println(luoAns[1]);
+//        Main main = new Main();
+//        main.wishRelative();
+        GraphQuestion gQ = new GraphQuestion();
+        int[][] matrix = {
+                {1,2,1,3,4},
+                {1,5,2,2,2},
+                {4,5,1,9,7},
+                {3,5,3,7,6},
+                {4,3,1,7,3}
+        };
+//        int[][] matrix = {
+//                {1,2,3,4},
+//                {5,5,5,2},
+//                {1,1,1,1},
+//                {0,0,0,9}
+//        };
+        int[][] plateau = gQ.findPlateau(matrix);
+        for (int[] row : plateau){
+            Utils.printArrayInt(row);
+            System.out.println("");
+        }
     }
+
+    private void wishRelative(){
+        GraphQuestion gQ = new GraphQuestion();
+        List<List<String>> relationships = new ArrayList<>();
+        List<String> relationship = new ArrayList<>();
+        relationship.add("Bart");
+        relationship.add("brother");
+        relationship.add("Lisa");
+        relationships.add(relationship);
+        relationship = new ArrayList<>();
+        relationship.add("Bart");
+        relationship.add("son");
+        relationship.add("Homer");
+        relationships.add(relationship);
+        relationship = new ArrayList<>();
+        relationship.add("Marge");
+        relationship.add("wife");
+        relationship.add("Homer");
+        relationships.add(relationship);
+        relationship = new ArrayList<>();
+        relationship.add("Lisa");
+        relationship.add("daughter");
+        relationship.add("Homer");
+        relationships.add(relationship);
+        relationship = new ArrayList<>();
+        relationship.add("Lisa");
+        relationship.add("sister");
+        relationship.add("Bart");
+        relationships.add(relationship);
+        List<String> res = gQ.getRelationship(relationships, "Bart", "Homer");
+        System.out.println(res);
+    }
+
+
 
     private void readFromFile(String fileName){
         try {
@@ -530,7 +561,29 @@ public class Main {
         int visitedMost = lQ.getVisited(7, Arrays.asList(print));
         Utils.println(visitedMost+"");
     }
-    HashMap<String,String> map = new HashMap<String,String>(){
+    public void runTwoSigmaOA(){
+        StringQuestion sq = new StringQuestion();
+        /**
+         * eeeeeeeeeeeeeeeiiiiiiiiiiiiiiiieieieieieiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeiiiiiiiiiiiiiiiiwiiiiiiiiiiiiiiiibbbbbb
+         * eeeeeeceeeeeeb
+         */
+        String s = "eeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiibeeeeeeeeeeeeeeeeeeeeeeehiiiiiiiiiiiiiiiiiiiiiiiib";
+        s = s.toLowerCase();
+        long startTime = 0;
+        startTime = System.currentTimeMillis();
+        String[] luoAns = sq.subStringLuo(s);
+        long luoLatency = System.currentTimeMillis()-startTime;
 
-    };
+        startTime = System.currentTimeMillis();
+        String[] myAns = sq.subString(s);
+        long myLatency = System.currentTimeMillis()-startTime;
+
+        System.out.printf("my latency : %d,  luo latency : %d\n",myLatency,luoLatency);
+        System.out.println("first equals : "+ (myAns[0].equals(luoAns[0])));
+        System.out.println("second equals : "+ (myAns[1].equals(luoAns[1])));
+        System.out.println(myAns[0]);
+        System.out.println(luoAns[0]);
+        System.out.println(myAns[1]);
+        System.out.println(luoAns[1]);
+    }
 }

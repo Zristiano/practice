@@ -1,0 +1,5 @@
+Select * from database.table where dt = "2015-08-08"
+
+Select * from database.table where dt = "2015-08-09"
+
+Select * from database.table where dt = "2015-08-10"

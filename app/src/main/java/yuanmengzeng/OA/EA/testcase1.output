@@ -1,0 +1,1 @@
+Select * from database.table where dt = "2015-08-08";

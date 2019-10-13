@@ -1,0 +1,19 @@
+-- real example in Hive, the password is the hardest one to parse
+
+USE default_database;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS ActivityDataTable
+    (messageID STRING, sentTimestamp BIGINT, activityID STRING, version STRING, soapHeader STRING, soapBody STRING, host STRING)
+    STORED BY 'org.apache.hadoop.hive.cassandra.CassandraStorageHandler'
+    WITH SERDEPROPERTIES (
+    "cassandra.host" = "127.0.0.1" , -- cassandra host ip
+    "cassandra.port" = "9160" ,/* casandra port "number",
+                                  default 8088 */
+    "cassandra.ks.name" = "EVENT_KS" ,
+    "cassandra.ks.username" = "admin" ,
+    "cassandra.ks.password" = "N--3?\"/*gc\"*/t;" ,
+    "cassandra.cf.name" = "org_wso2_bam_activity_monitoring" ,
+    "cassandra.columns.mapping" =
+    ":'key', payload_timestamp, correlation_bam_activity_id, Version, payload_SOAPHeader, payload_SOAPBody, meta_host" );
+
+SELECT * from ActivityDataTable LIMIT 10; --end

@@ -1,0 +1,6 @@
+-- Script only contains multiple simple queries and set statement
+
+Select * from database.table where dt = "2015-08-08";
+SET mapreduce.job.running.map.limit=1;
+Select * from database.table where dt = "2015-08-09";
+Select * from database.table where dt = "2015-08-10";

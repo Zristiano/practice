@@ -1,0 +1,3 @@
+Select * from database.table where value = "--this is a string"
+
+Select * from database.table where value = '/*this is also a string*/'

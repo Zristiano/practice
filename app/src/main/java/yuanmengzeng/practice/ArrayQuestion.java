@@ -3,7 +3,6 @@ package yuanmengzeng.practice;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  * Q1:
@@ -798,6 +797,122 @@ public class ArrayQuestion {
             posCount = queue.size();
         }
         return time;
+    }
+
+
+    /**
+     *  Given an array, find the minimum cost of making the elements monotonic increasing.
+     *  both +1 and -1 of the element cost 1
+     *  example:
+     *  [1,3,5,2]
+     *  with the minimum cost to make this array monotonic increasing,
+     *  [1,3,5,5] --> cost:3
+     *  [1,3,3,3] --> cost:3
+     *
+     */
+    public int minCost(int[] arr){
+        int minEle = arr[0];
+        int maxEle = arr[0];
+        for(int a : arr){
+            minEle = Math.min(minEle, a);
+            maxEle = Math.max(maxEle, a);
+        }
+        int[] B = new int[maxEle-minEle+1];
+        for(int i=0; i<B.length; i++){
+            B[i] = minEle+i;
+        }
+        int[][] cost = new int[arr.length][B.length];
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<B.length; j++){
+                int curCost = Math.abs(B[j]-arr[i]);
+                if(i==0){
+                    cost[i][j] = curCost;
+                }else{
+                    int minCostBeforeJ = cost[i-1][0];
+                    for(int k=0; k<=j; k++){
+                        minCostBeforeJ = Math.min(minCostBeforeJ, cost[i-1][k]);
+                    }
+                    cost[i][j] = minCostBeforeJ + curCost;
+                }
+            }
+        }
+
+        int minCost = cost[arr.length-1][0];
+        for(int i=0; i<B.length; i++){
+            minCost = Math.min(cost[arr.length-1][i],minCost);
+        }
+        return minCost;
+    }
+
+    public int minCost(){
+        Scanner scanner = new Scanner(System.in);
+        int len = scanner.nextInt();
+        int[] arr = new int[len];
+        for (int i=0; i<len; i++){
+            arr[i] = scanner.nextInt();
+        }
+        int minEle = arr[0];
+        int maxEle = arr[0];
+        for(int a : arr){
+            minEle = Math.min(minEle, a);
+            maxEle = Math.max(maxEle, a);
+        }
+        int[] B = new int[maxEle-minEle+1];
+        for(int i=0; i<B.length; i++){
+            B[i] = minEle+i;
+        }
+        int[][] cost = new int[arr.length][B.length];
+        for(int i=0; i<arr.length; i++){
+            for(int j=0; j<B.length; j++){
+                int curCost = Math.abs(B[j]-arr[i]);
+                if(i==0){
+                    cost[i][j] = curCost;
+                }else{
+                    int minCostBeforeJ = cost[i-1][0];
+                    for(int k=0; k<=j; k++){
+                        minCostBeforeJ = Math.min(minCostBeforeJ, cost[i-1][k]);
+                    }
+                    cost[i][j] = minCostBeforeJ + curCost;
+                }
+            }
+        }
+
+        int minCost = cost[arr.length-1][0];
+        for(int i=0; i<B.length; i++){
+            minCost = Math.min(cost[arr.length-1][i],minCost);
+        }
+        return minCost;
+    }
+
+    /**
+     * Wish OA
+     *
+     * 给了一个0/1数组，0代表绿灯，1代表红灯。反转一个区间的意思是说把这个区间里面的0变成1，1变成0，问经过一次反转最多能有多少个绿灯，然后反转区间的下标。
+     * 比如数组是[0,1,1,0,1,1] 可以反转下标 [1, 5]  这个区间，得到 [0,0,0,1,0,0]  这个最多五个绿灯的数组。
+     * 返回[1, 5]即可（时间复杂度要求O(N)了）
+     */
+    public int[] reverseRedGreenInterval(int[] arr){
+        int[] res = new int[2];
+        int l = 0;
+        int diff = 0; // count(red) - count(green)
+        int maxDiff = 0;
+        for(int r=0; r<arr.length; r++){
+            if(arr[r]==1){
+                diff ++;
+                if(diff>maxDiff){
+                    res[0] = l;
+                    res[1] = r;
+                    maxDiff = diff;
+                }
+            }else{
+                diff --;
+                while(diff<0){
+                    diff = arr[l]==1? diff-1 : diff+1;
+                    l++;
+                }
+            }
+        }
+        return res;
     }
 }
 
